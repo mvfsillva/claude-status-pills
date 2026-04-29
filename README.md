@@ -1,10 +1,10 @@
 # claude-status-pills
 
-A status bar for Claude Code terminals, styled with [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) colors.
+A [Catppuccin](https://github.com/catppuccin/catppuccin)-themed status bar for Claude Code. Mocha, Latte, Frappe, and Macchiato.
 
-![status bar showing rainbow Powerline pills with model, context %, rate limits, git branch, and token stats](.github/preview.png)
+![status bar showing rainbow Powerline pills](.github/preview.png)
 
-Each session gets a row of colored pills — model name, context window usage, 5h/7d rate limits with reset times, current directory, git branch, active Square agents, RTK savings, and token I/O. Colors cycle across the full Mocha accent palette in rainbow order.
+Shows model name, context window %, 5h/7d rate limits with reset times, current directory, git branch, active Square agents, RTK savings, and token I/O — all as a row of rainbow pills at the bottom of your terminal.
 
 ## Requirements
 
@@ -16,9 +16,12 @@ Each session gets a row of colored pills — model name, context window usage, 5
 
 ```sh
 npx @mvfsilva/claude-status-pills
+npx @mvfsilva/claude-status-pills --theme latte
 ```
 
-Copies `statusline.sh` to `~/.claude/` and wires up `settings.json`. Restart Claude Code after running.
+Themes: `mocha` (default), `latte`, `frappe`, `macchiato`.
+
+Copies `statusline.sh` to `~/.claude/` and saves your theme to `~/.claude/statusline.conf`. Restart Claude Code after running.
 
 ## Manual setup
 
@@ -27,7 +30,12 @@ Copies `statusline.sh` to `~/.claude/` and wires up `settings.json`. Restart Cla
    chmod +x ~/.claude/statusline.sh
    ```
 
-2. Add to `~/.claude/settings.json`:
+2. Pick a theme by creating `~/.claude/statusline.conf`:
+   ```sh
+   STATUSLINE_THEME=frappe
+   ```
+
+3. Add to `~/.claude/settings.json`:
    ```json
    {
      "statusLine": {
@@ -38,7 +46,7 @@ Copies `statusline.sh` to `~/.claude/` and wires up `settings.json`. Restart Cla
    }
    ```
 
-3. Restart Claude Code.
+4. Restart Claude Code.
 
 ## License
 
