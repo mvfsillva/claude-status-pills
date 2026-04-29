@@ -1,10 +1,16 @@
 # claude-status-pills
 
-A [Catppuccin](https://github.com/catppuccin/catppuccin)-themed status bar for Claude Code. Mocha, Latte, Frappe, and Macchiato.
+A [Catppuccin](https://github.com/catppuccin/catppuccin)-themed status bar for [Claude Code](https://code.claude.com/docs/en/statusline) and the [Cursor CLI](https://cursor.com). Both pass the same status-line JSON on stdin. Four palettes: Mocha (default), Latte, Frappe, Macchiato.
+
+### Claude Code
 
 ![status bar showing rainbow Powerline pills](.github/preview.png)
 
-Shows model name, context window %, 5h/7d rate limits with reset times, current directory, git branch, active Square agents, RTK savings, and token I/O — all as a row of rainbow pills at the bottom of your terminal.
+### Cursor CLI
+
+![Cursor CLI with Catppuccin status pills](.github/cursor-preview.png)
+
+Model name, context window usage, 5h and 7d rate limits with reset times, cwd, git branch, Square agents if configured, RTK savings, and token I/O, rendered as one row of Powerline pills along the bottom of the terminal.
 
 ## Requirements
 
@@ -21,7 +27,16 @@ npx @mvfsilva/claude-status-pills --theme latte
 
 Themes: `mocha` (default), `latte`, `frappe`, `macchiato`.
 
-Copies `statusline.sh` to `~/.claude/` and saves your theme to `~/.claude/statusline.conf`. Restart Claude Code after running.
+By default this installs for Claude Code (`~/.claude/`, `settings.json`). For Cursor CLI:
+
+```sh
+npx @mvfsilva/claude-status-pills --target cursor
+npx @mvfsilva/claude-status-pills --target both --theme frappe
+```
+
+The installer updates `~/.cursor/cli-config.json` and drops `~/.cursor/statusline.conf`. Input matches Claude Code's status line format. Rate-limit pills from Anthropic OAuth only appear when the payload includes `rate_limits` or a Claude Code token is available; model, context %, cwd, git, and token segments behave the same under Cursor.
+
+Restart Claude Code or start a new Cursor CLI session after installing.
 
 ## Manual setup
 
@@ -35,7 +50,7 @@ Copies `statusline.sh` to `~/.claude/` and saves your theme to `~/.claude/status
    STATUSLINE_THEME=frappe
    ```
 
-3. Add to `~/.claude/settings.json`:
+3. Add to `~/.claude/settings.json` (Claude Code) or `~/.cursor/cli-config.json` (Cursor CLI):
    ```json
    {
      "statusLine": {
@@ -46,7 +61,9 @@ Copies `statusline.sh` to `~/.claude/` and saves your theme to `~/.claude/status
    }
    ```
 
-4. Restart Claude Code.
+   For Cursor, point `"command"` at `~/.cursor/statusline.sh` and set `"padding"` to taste (often `2`).
+
+4. Restart Claude Code or the Cursor CLI.
 
 ## License
 

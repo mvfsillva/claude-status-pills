@@ -11,7 +11,13 @@ parent_parent_pid=$(ps -o ppid= -p "$claude_pid" 2>/dev/null | tr -d ' ')
 
 # Load theme from config (default: mocha)
 STATUSLINE_THEME="mocha"
-theme_config="${HOME}/.claude/statusline.conf"
+if [ -n "${STATUSLINE_CONF:-}" ] && [ -f "$STATUSLINE_CONF" ]; then
+    theme_config="$STATUSLINE_CONF"
+elif [ -f "${HOME}/.cursor/statusline.conf" ]; then
+    theme_config="${HOME}/.cursor/statusline.conf"
+else
+    theme_config="${HOME}/.claude/statusline.conf"
+fi
 [ -f "$theme_config" ] && . "$theme_config"
 
 # Catppuccin palette — full accent colors (canonical rainbow order)
