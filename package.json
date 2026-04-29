@@ -1,0 +1,27 @@
+{
+  "name": "@mvfsilva/claude-status-pills",
+  "version": "1.0.0",
+  "description": "Real-time terminal status bar for Claude Code sessions, themed with Catppuccin Mocha",
+  "bin": {
+    "claude-status-pills": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "statusline.sh"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "statusline",
+    "pills",
+    "status-pills",
+    "terminal",
+    "catppuccin",
+    "mocha"
+  ],
+  "author": "mvfsilva",
+  "license": "MIT"
+}
