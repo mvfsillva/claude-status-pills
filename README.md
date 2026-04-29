@@ -1,4 +1,4 @@
-# claude-status-pills
+# agent-status-pills
 
 A [Catppuccin](https://github.com/catppuccin/catppuccin)-themed status bar for [Claude Code](https://code.claude.com/docs/en/statusline) and the [Cursor CLI](https://cursor.com). Both pass the same status-line JSON on stdin. Four palettes: Mocha (default), Latte, Frappe, Macchiato.
 
@@ -21,8 +21,8 @@ Model name, context window usage, 5h and 7d rate limits with reset times, cwd, g
 ## Install
 
 ```sh
-npx @mvfsilva/claude-status-pills
-npx @mvfsilva/claude-status-pills --theme latte
+npx @mvfsilva/agent-status-pills
+npx @mvfsilva/agent-status-pills --theme latte
 ```
 
 Themes: `mocha` (default), `latte`, `frappe`, `macchiato`.
@@ -30,8 +30,8 @@ Themes: `mocha` (default), `latte`, `frappe`, `macchiato`.
 By default this installs for Claude Code (`~/.claude/`, `settings.json`). For Cursor CLI:
 
 ```sh
-npx @mvfsilva/claude-status-pills --target cursor
-npx @mvfsilva/claude-status-pills --target both --theme frappe
+npx @mvfsilva/agent-status-pills --target cursor
+npx @mvfsilva/agent-status-pills --target both --theme frappe
 ```
 
 The installer updates `~/.cursor/cli-config.json` and drops `~/.cursor/statusline.conf`. Input matches Claude Code's status line format. Rate-limit pills from Anthropic OAuth only appear when the payload includes `rate_limits` or a Claude Code token is available; model, context %, cwd, git, and token segments behave the same under Cursor.

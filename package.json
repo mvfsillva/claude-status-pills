@@ -1,9 +1,9 @@
 {
-  "name": "@mvfsilva/claude-status-pills",
+  "name": "@mvfsilva/agent-status-pills",
   "version": "1.0.0",
   "description": "Real-time terminal status bar for Claude Code sessions, themed with Catppuccin Mocha",
   "bin": {
-    "claude-status-pills": "bin/install.js"
+    "agent-status-pills": "bin/install.js"
   },
   "files": [
     "bin/",
